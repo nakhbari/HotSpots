@@ -1,5 +1,7 @@
 package com.nakhbari.hotspots;
 
+import android.graphics.Bitmap;
+
 import com.google.android.gms.maps.model.LatLng;
 
 /**
@@ -7,17 +9,22 @@ import com.google.android.gms.maps.model.LatLng;
  */
 public class Spots {
     private float temperature;
-    private LatLng location;
+    private LatLng coordinates;
     private String name;
+    private String country;
+    private String iconID;
+    private Bitmap image;
 
     public Spots(){
         temperature = 0;
-        location = null;
+        coordinates = null;
         name = "name";
+        country = "country";
+        iconID = "";
     }
 
-    public void setLocation(LatLng location) {
-        this.location = location;
+    public void setCoordinates(LatLng coordinates) {
+        this.coordinates = coordinates;
     }
 
     public void setName(String name) {
@@ -35,7 +42,30 @@ public class Spots {
         return this.name;
     }
 
-    public LatLng getLocation(){
-        return this.location;
+    public LatLng getCoordinates(){
+        return this.coordinates;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+    public String getCountry(){
+        return this.country;
+    }
+
+    public void setImage(Bitmap image) {
+        this.image = image;
+    }
+
+    public Bitmap getImage() {
+        return image;
+    }
+
+    public void setIconID(String iconID) {
+        this.iconID = iconID;
+    }
+
+    public String getIconID() {
+        return iconID;
     }
 }

@@ -8,7 +8,8 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:id="@+id/etLocation"/>
+        android:id="@+id/etLocation"
+        android:hint="City"/>
 
     <Button android:text="Search"
         android:layout_toRightOf="@id/etLocation"
@@ -32,11 +33,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:text="Current Temp: Xdeg"
+        android:text=""
         android:layout_alignBaseline="@id/bMap"
         android:textSize="16dp"
         android:id="@+id/tvCurrentTemp"
         android:layout_toRightOf="@id/bMap"/>
+    <ProgressBar
+    android:id="@+id/pbLoadingCities"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_below="@id/bMap"
+    android:padding="100dp"
+    android:visibility="gone"
+    android:layout_alignParentBottom="true"
+    android:layout_height="wrap_content" />
 
     <FrameLayout
         android:layout_below="@id/bList"
