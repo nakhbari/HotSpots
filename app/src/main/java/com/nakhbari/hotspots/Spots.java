@@ -15,7 +15,7 @@ public class Spots {
     private String iconID;
     private Bitmap image;
 
-    public Spots(){
+    public Spots() {
         temperature = 0;
         coordinates = null;
         name = "name";
@@ -23,49 +23,51 @@ public class Spots {
         iconID = "";
     }
 
-    public void setCoordinates(LatLng coordinates) {
-        this.coordinates = coordinates;
+    public float getTemperature() {
+        return this.temperature;
+    }
+
+    public void setTemperature(float temperature) {
+        this.temperature = temperature;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setTemperature(float temperature) {
-        this.temperature = temperature;
-    }
-    public float getTemperature(){
-        return this.temperature;
-    }
-
-    public String getName(){
-        return this.name;
-    }
-
-    public LatLng getCoordinates(){
+    public LatLng getCoordinates() {
         return this.coordinates;
+    }
+
+    public void setCoordinates(LatLng coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public String getCountry() {
+        return this.country;
     }
 
     public void setCountry(String country) {
         this.country = country;
-    }
-    public String getCountry(){
-        return this.country;
-    }
-
-    public void setImage(Bitmap image) {
-        this.image = image;
     }
 
     public Bitmap getImage() {
         return image;
     }
 
-    public void setIconID(String iconID) {
-        this.iconID = iconID;
+    public void setImage(Bitmap image) {
+        this.image = image;
     }
 
     public String getIconID() {
         return iconID;
+    }
+
+    public void setIconID(String iconID) {
+        this.iconID = iconID;
     }
 }

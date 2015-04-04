@@ -5,10 +5,15 @@ package com.nakhbari.hotspots;
  */
 public class Helper {
     public static String FormatTemperatureToString(double d) {
+        String out;
         if (d == (int) d)
-            return String.format("%d", (int) d);
+            out = String.format("%d", (int) d);
+        else if ((int) (d * 10) == d * 10)
+            out = String.format("%.1f", d);
         else
-            return String.format("%.2f", d);
+            out = String.format("%.2f", d);
+
+        return out + "\u00b0C";
     }
 }
 

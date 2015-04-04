@@ -1,9 +1,6 @@
 package com.nakhbari.hotspots;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,20 +19,13 @@ public class CustomListAdapter extends ArrayAdapter<Spots> {
         super(context, textViewResourceId, rowEntries);
     }
 
-    private static class ViewHolder{
-        TextView tvName;
-        TextView tvCountry;
-        ImageView ivIcon;
-        TextView tvTemp;
-    }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = new ViewHolder();
 
         View view = convertView;
 
-        if(view == null){
+        if (view == null) {
             LayoutInflater inflater = (LayoutInflater) getContext()
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -47,29 +37,36 @@ public class CustomListAdapter extends ArrayAdapter<Spots> {
             holder.ivIcon = (ImageView) view.findViewById(R.id.ivIcon);
 
             view.setTag(holder);
-        }else{
+        } else {
             holder = (ViewHolder) view.getTag();
         }
 
         Spots spot = getItem(position);
-        if(holder.tvName != null){
+        if (holder.tvName != null) {
             holder.tvName.setText(spot.getName());
         }
-        if(holder.tvCountry != null){
+        if (holder.tvCountry != null) {
 
             holder.tvCountry.setText(spot.getCountry());
         }
-        if(holder.tvTemp != null){
+        if (holder.tvTemp != null) {
 
-            holder.tvTemp.setText(Helper.FormatTemperatureToString(spot.getTemperature())+"C");
+            holder.tvTemp.setText(Helper.FormatTemperatureToString(spot.getTemperature()));
 
         }
 
-        if(holder.ivIcon != null && spot.getImage() != null){
+        if (holder.ivIcon != null && spot.getImage() != null) {
             holder.ivIcon.setImageBitmap(spot.getImage());
         }
 
 
         return view;
+    }
+
+    private static class ViewHolder {
+        TextView tvName;
+        TextView tvCountry;
+        ImageView ivIcon;
+        TextView tvTemp;
     }
 }

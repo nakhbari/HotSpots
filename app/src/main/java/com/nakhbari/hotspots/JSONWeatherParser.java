@@ -13,14 +13,14 @@ import java.util.ArrayList;
  */
 public class JSONWeatherParser {
 
-    public static Spots getSpot(String data) throws JSONException{
+    public static Spots getSpot(String data) throws JSONException {
         // We create out JSONObject from the data
         JSONObject jObj = new JSONObject(data);
 
         return getSpotFromObject(jObj);
     }
 
-    public static Spots getSpotFromObject(JSONObject jObj) throws JSONException{
+    public static Spots getSpotFromObject(JSONObject jObj) throws JSONException {
         Spots spot = new Spots();
 
         // We start extracting the info
@@ -44,7 +44,7 @@ public class JSONWeatherParser {
         return spot;
     }
 
-    public static ArrayList<Spots> getSpots(String data) throws JSONException{
+    public static ArrayList<Spots> getSpots(String data) throws JSONException {
 
         ArrayList<Spots> spots = new ArrayList<>();
 
@@ -52,16 +52,17 @@ public class JSONWeatherParser {
         JSONObject jObj = new JSONObject(data);
 
         // We get list of weather info (This is an array)
-        int count = getInt("cnt",jObj);
+        int count = getInt("cnt", jObj);
         JSONArray jArr = jObj.getJSONArray("list");
 
-        for(int i = 0; i < count; i++){
+        for (int i = 0; i < count; i++) {
             spots.add(getSpotFromObject(jArr.getJSONObject(i)));
         }
 
         return spots;
     }
-    private static JSONObject getObject(String tagName, JSONObject jObj)  throws JSONException {
+
+    private static JSONObject getObject(String tagName, JSONObject jObj) throws JSONException {
         JSONObject subObj = jObj.getJSONObject(tagName);
         return subObj;
     }
@@ -70,11 +71,11 @@ public class JSONWeatherParser {
         return jObj.getString(tagName);
     }
 
-    private static float  getFloat(String tagName, JSONObject jObj) throws JSONException {
+    private static float getFloat(String tagName, JSONObject jObj) throws JSONException {
         return (float) jObj.getDouble(tagName);
     }
 
-    private static int  getInt(String tagName, JSONObject jObj) throws JSONException {
+    private static int getInt(String tagName, JSONObject jObj) throws JSONException {
         return jObj.getInt(tagName);
     }
 }

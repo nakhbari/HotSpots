@@ -16,6 +16,7 @@ public class FragmentList extends ListFragment {
     FragmentListCommunicator activityCommunicator;
     private CustomListAdapter adapter;
     private ArrayList<Spots> spotList = new ArrayList<>();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_list, container, false);
@@ -29,12 +30,12 @@ public class FragmentList extends ListFragment {
         setListAdapter(adapter);
     }
 
-    public void setSpots(ArrayList<Spots> spotList){
+    public void setSpots(ArrayList<Spots> spotList) {
         this.spotList.clear();
         this.spotList.addAll(spotList);
         this.activityCommunicator.updateMap();
 
-        if(adapter != null) {
+        if (adapter != null) {
             adapter.notifyDataSetChanged();
         }
     }
@@ -43,7 +44,9 @@ public class FragmentList extends ListFragment {
         return this.spotList;
     }
 
-    /** ----------------------- Activity Interface ----------------- */
+    /**
+     * ----------------------- Activity Interface -----------------
+     */
 
     @Override
     public void onAttach(Activity activity) {
